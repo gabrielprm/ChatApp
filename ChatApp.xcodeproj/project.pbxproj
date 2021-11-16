@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		892BA34327441F9700A71A8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892BA34227441F9700A71A8C /* AppDelegate.swift */; };
 		892BA34527441F9700A71A8C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892BA34427441F9700A71A8C /* SceneDelegate.swift */; };
-		892BA34727441F9700A71A8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892BA34627441F9700A71A8C /* ViewController.swift */; };
 		892BA34A27441F9700A71A8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892BA34827441F9700A71A8C /* Main.storyboard */; };
 		892BA34D27441F9700A71A8C /* ChatApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 892BA34B27441F9700A71A8C /* ChatApp.xcdatamodeld */; };
 		892BA34F27441F9900A71A8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 892BA34E27441F9900A71A8C /* Assets.xcassets */; };
@@ -17,6 +16,12 @@
 		892BA35D27441F9900A71A8C /* ChatAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892BA35C27441F9900A71A8C /* ChatAppTests.swift */; };
 		892BA36727441F9900A71A8C /* ChatAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892BA36627441F9900A71A8C /* ChatAppUITests.swift */; };
 		892BA36927441F9900A71A8C /* ChatAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892BA36827441F9900A71A8C /* ChatAppUITestsLaunchTests.swift */; };
+		892BA37C2744237A00A71A8C /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892BA37B2744237A00A71A8C /* ConversationViewController.swift */; };
+		892BA37F2744238D00A71A8C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892BA37E2744238D00A71A8C /* LoginViewController.swift */; };
+		892BA3812744239600A71A8C /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892BA3802744239600A71A8C /* RegistrationViewController.swift */; };
+		892BA383274423AB00A71A8C /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892BA382274423AB00A71A8C /* PhotoViewerViewController.swift */; };
+		892BA385274423C600A71A8C /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892BA384274423C600A71A8C /* NewConversationViewController.swift */; };
+		892BA387274423E700A71A8C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892BA386274423E700A71A8C /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +45,6 @@
 		892BA33F27441F9700A71A8C /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		892BA34227441F9700A71A8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		892BA34427441F9700A71A8C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		892BA34627441F9700A71A8C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		892BA34927441F9700A71A8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		892BA34C27441F9700A71A8C /* ChatApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ChatApp.xcdatamodel; sourceTree = "<group>"; };
 		892BA34E27441F9900A71A8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +55,12 @@
 		892BA36227441F9900A71A8C /* ChatAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		892BA36627441F9900A71A8C /* ChatAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAppUITests.swift; sourceTree = "<group>"; };
 		892BA36827441F9900A71A8C /* ChatAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		892BA37B2744237A00A71A8C /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		892BA37E2744238D00A71A8C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		892BA3802744239600A71A8C /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		892BA382274423AB00A71A8C /* PhotoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerViewController.swift; sourceTree = "<group>"; };
+		892BA384274423C600A71A8C /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
+		892BA386274423E700A71A8C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,12 +111,12 @@
 		892BA34127441F9700A71A8C /* ChatApp */ = {
 			isa = PBXGroup;
 			children = (
-				892BA34227441F9700A71A8C /* AppDelegate.swift */,
-				892BA34427441F9700A71A8C /* SceneDelegate.swift */,
-				892BA34627441F9700A71A8C /* ViewController.swift */,
-				892BA34827441F9700A71A8C /* Main.storyboard */,
+				892BA379274422D300A71A8C /* Resources */,
+				892BA378274422CE00A71A8C /* Controller */,
+				892BA377274422C800A71A8C /* ViewModel */,
+				892BA376274422C500A71A8C /* View */,
+				892BA375274422C000A71A8C /* Model */,
 				892BA34E27441F9900A71A8C /* Assets.xcassets */,
-				892BA35027441F9900A71A8C /* LaunchScreen.storyboard */,
 				892BA35327441F9900A71A8C /* Info.plist */,
 				892BA34B27441F9700A71A8C /* ChatApp.xcdatamodeld */,
 			);
@@ -128,6 +138,67 @@
 				892BA36827441F9900A71A8C /* ChatAppUITestsLaunchTests.swift */,
 			);
 			path = ChatAppUITests;
+			sourceTree = "<group>";
+		};
+		892BA375274422C000A71A8C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		892BA376274422C500A71A8C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				892BA37A2744233900A71A8C /* Storyboards */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		892BA377274422C800A71A8C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		892BA378274422CE00A71A8C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				892BA37D2744237F00A71A8C /* Authentication */,
+				892BA37B2744237A00A71A8C /* ConversationViewController.swift */,
+				892BA382274423AB00A71A8C /* PhotoViewerViewController.swift */,
+				892BA384274423C600A71A8C /* NewConversationViewController.swift */,
+				892BA386274423E700A71A8C /* ProfileViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		892BA379274422D300A71A8C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				892BA34427441F9700A71A8C /* SceneDelegate.swift */,
+				892BA34227441F9700A71A8C /* AppDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		892BA37A2744233900A71A8C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				892BA34827441F9700A71A8C /* Main.storyboard */,
+				892BA35027441F9900A71A8C /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		892BA37D2744237F00A71A8C /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				892BA37E2744238D00A71A8C /* LoginViewController.swift */,
+				892BA3802744239600A71A8C /* RegistrationViewController.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,9 +332,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				892BA34727441F9700A71A8C /* ViewController.swift in Sources */,
+				892BA3812744239600A71A8C /* RegistrationViewController.swift in Sources */,
 				892BA34D27441F9700A71A8C /* ChatApp.xcdatamodeld in Sources */,
+				892BA385274423C600A71A8C /* NewConversationViewController.swift in Sources */,
 				892BA34327441F9700A71A8C /* AppDelegate.swift in Sources */,
+				892BA383274423AB00A71A8C /* PhotoViewerViewController.swift in Sources */,
+				892BA37C2744237A00A71A8C /* ConversationViewController.swift in Sources */,
+				892BA387274423E700A71A8C /* ProfileViewController.swift in Sources */,
+				892BA37F2744238D00A71A8C /* LoginViewController.swift in Sources */,
 				892BA34527441F9700A71A8C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
