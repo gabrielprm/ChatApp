@@ -13,8 +13,6 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
 		
 		setupChildren()
-		tabBar.isTranslucent = false
-		
     }
     
 	func setupChildren() {
@@ -28,6 +26,10 @@ class TabBarController: UITabBarController {
 		//pra nav bar não aparecer na tela do mapa
 		mapNavVc.isNavigationBarHidden = true
 		
+		mapNavVc.title = "Map"
+		pinNavVc.title = "Pins"
+		settingsNavVc.title = "Settings"
+		
 		//adicionando as view controllers apresentadas pela tab bar controller
 		viewControllers = [mapNavVc, pinNavVc, settingsNavVc]
 		
@@ -38,7 +40,6 @@ class TabBarController: UITabBarController {
 
 		let navigationController = UINavigationController(rootViewController: viewController)
 		navigationController.tabBarItem.image = image
-		navigationController.navigationBar.barTintColor = .blue
 		return navigationController
 
 	}
