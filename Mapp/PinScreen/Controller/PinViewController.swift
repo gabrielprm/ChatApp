@@ -10,7 +10,7 @@ import UIKit
 class PinViewController: UIViewController {
     
 
-    private var tableView: UITableView = UITableView()
+    private var tableView: UITableView = UITableView(frame: CGRect(), style: .insetGrouped)
     
     override func viewDidLoad() {
         super.viewDidLoad()
