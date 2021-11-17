@@ -33,16 +33,52 @@ class MapViewController: UIViewController {
 		view.addSubview(mapView)
 		mapView.addMapConstraints(view)
 		//mapView.delegate = self
+		
+		checkLocationEnabled()
 	}
-
+	
+	func checkLocationEnabled() {
+		if CLLocationManager.locationServicesEnabled() {
+			checkAuthorizationStatus()
+			
+		}
+		else {
+			// alertar usuario que os serviços de localizaçao do dispositivo tao desligados
+		}
+	}
+	
+	func checkAuthorizationStatus() {
+		switch manager.authorizationStatus {
+			
+		case .authorizedWhenInUse, .authorizedAlways:
+			//atualizar posiçao do user
+			
+			
+			break
+			
+		case .notDetermined:
+			manager.requestWhenInUseAuthorization()
+			
+		case .denied:
+			print("negado")
+			
+		case .restricted:
+			print("restrito")
+			
+		@unknown default:
+			print("não sabemos de nada")
+		}
+	}
+	
 }
+
 
 //MARK: - Manager Delegate
 //extension MapViewController: CLLocationManagerDelegate {
 //
 //	///Permissão e autorização
 //	func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-//		<#code#>
+//		checkAuthorizationStatus()
 //	}
 //
 //	///Roda toda vez que muda a posição
