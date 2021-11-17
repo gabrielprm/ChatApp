@@ -42,7 +42,6 @@ class PinViewController: UIViewController {
     }
     
     @objc func addNewPin(){
-        print("In")
         let alert = UIAlertController(title: "Novo Alfinete", message: "Adicionar as coordenadas da latitude e longitude respectivamente", preferredStyle: .alert)
         
         alert.addTextField { textField in
