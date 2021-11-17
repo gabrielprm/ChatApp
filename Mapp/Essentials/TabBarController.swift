@@ -19,13 +19,9 @@ class TabBarController: UITabBarController {
     
 	func setupChildren() {
 		
-		let mapvc = MapViewController()
-		let pinvc = PinViewController()
-		let settingsvc = SettingsViewController()
-		
-		let mapNavVc = setUpNavigationController(image: UIImage(systemName: "map"), viewController: mapvc)
-		let pinNavVc = setUpNavigationController(image: UIImage(systemName: "pin.circle"), viewController: pinvc)
-		let settingsNavVc = setUpNavigationController(image: UIImage(systemName: "gearshape"), viewController: settingsvc)
+		let mapNavVc = setUpNavigationController(image: UIImage(systemName: "map"), viewController: MapViewController())
+		let pinNavVc = setUpNavigationController(image: UIImage(systemName: "pin.circle"), viewController: PinViewController())
+		let settingsNavVc = setUpNavigationController(image: UIImage(systemName: "gearshape"), viewController: SettingsViewController())
 		
 		viewControllers = [mapNavVc, pinNavVc, settingsNavVc]
 		
