@@ -19,6 +19,15 @@ class MapViewController: UIViewController {
 		return map
 	}()
 	
+	private let locationButton: UIButton = {
+		let btn = UIButton()
+		
+		btn.backgroundColor = .systemRed
+		btn.isHidden = false
+		
+		return btn
+	}()
+	
 	let manager = CLLocationManager()
 	
     override func viewDidLoad() {
@@ -32,7 +41,14 @@ class MapViewController: UIViewController {
 		
 		map.delegate = self
 		
-		//checar a as permissões de localização
+		//setando o botao da localização
+		locationButton.addTarget(self, action: #selector(goToCurrentLocation(sender:)), for: .touchUpInside)
+		view.addSubview(locationButton)
+		locationButton.setDimensions(width: 40, height: 40)
+		locationButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
+		locationButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60).isActive = true
+		
+		//checar as permissões de localização
 		checkLocationEnabled()
 	}
 	
@@ -44,6 +60,7 @@ class MapViewController: UIViewController {
 		}
 		else {
 			// alertar usuario que os serviços de localização do dispositivo tão desligados
+			print("dispositivo sem localização")
 		}
 	}
 	
@@ -73,8 +90,10 @@ class MapViewController: UIViewController {
 		case .authorizedWhenInUse, .authorizedAlways:
 			// atualizar posiçao do user
 			map.showsUserLocation = true
-			render(location: manager.location!)
 			manager.startUpdatingLocation()
+			
+			guard let location = manager.location else {return}
+			render(location: location)
 			
 		case .notDetermined:
 			//pedir autorizaçao
@@ -91,6 +110,13 @@ class MapViewController: UIViewController {
 		}
 	}
 	
+	@objc func goToCurrentLocation(sender: UIButton) {
+		
+		print("woooop")
+		checkLocationEnabled()
+		
+	}
+	
 }
 
 
@@ -104,9 +130,7 @@ extension MapViewController: CLLocationManagerDelegate {
 
 	///Roda toda vez que muda a posição
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-		
-		guard let location = locations.last else {return}
-		
+				
 	}
 
 	///Roda quando entra numa region
@@ -126,6 +150,7 @@ extension MapViewController: CLLocationManagerDelegate {
 
 }
 
+//MARK: - Map Delegate
 extension MapViewController: MKMapViewDelegate {
 
 	///Roda quando a region do mapa mudou por algum motivo
