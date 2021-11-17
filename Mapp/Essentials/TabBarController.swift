@@ -21,6 +21,7 @@ class TabBarController: UITabBarController {
 		
 		let mapNavVc = setUpNavigationController(image: UIImage(systemName: "map"), viewController: MapViewController())
 		let pinNavVc = setUpNavigationController(image: UIImage(systemName: "pin.circle"), viewController: PinViewController())
+        pinNavVc.navigationBar.prefersLargeTitles = true
 		let settingsNavVc = setUpNavigationController(image: UIImage(systemName: "gearshape"), viewController: SettingsViewController())
 		
 		viewControllers = [mapNavVc, pinNavVc, settingsNavVc]
