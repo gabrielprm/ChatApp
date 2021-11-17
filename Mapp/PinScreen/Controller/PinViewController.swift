@@ -18,6 +18,11 @@ class PinViewController: UIViewController {
 
     private var tableView: UITableView = UITableView(frame: CGRect(), style: .insetGrouped)
     
+    override func loadView() {
+        super.loadView()
+     
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 		title = "Alfinetes"
@@ -32,6 +37,30 @@ class PinViewController: UIViewController {
                          right: view.rightAnchor)
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PinCell")
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPin))
+    }
+    
+    @objc func addNewPin(){
+        print("In")
+        let alert = UIAlertController(title: "Novo Alfinete", message: "Adicionar as coordenadas da latitude e longitude respectivamente", preferredStyle: .alert)
+        
+        alert.addTextField { textField in
+            textField.text = "20.2345"
+            textField.placeholder = "Latitude"
+        }
+        alert.addTextField { textField in
+            textField.text = "-12.4453"
+            textField.placeholder = "Longitude"
+        }
+        
+        alert.addAction(UIAlertAction(title: "Adicionar", style: .default, handler: { alert in
+            //Salvar as coordenadas
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 
