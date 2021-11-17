@@ -54,9 +54,13 @@ class PinViewController: UIViewController {
             textField.placeholder = "Longitude"
         }
         
-        alert.addAction(UIAlertAction(title: "Adicionar", style: .default, handler: { alert in
+        alert.addAction(UIAlertAction(title: "Adicionar", style: .default, handler: { [weak alert] _ in
             //Salvar as coordenadas
+            guard let latitude = alert?.textFields?[0].text, let longitude = alert?.textFields?[1].text else {
+                return
+            }
             
+            print("\(latitude) \(longitude)")
         }))
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
         
