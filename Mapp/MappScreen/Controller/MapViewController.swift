@@ -26,10 +26,13 @@ class MapViewController: UIViewController {
 		
 		title = "Map"
 		
+		//setando o mapa dentro da view
 		view.addSubview(map)
 		map.addMapConstraints(view)
+		
 		map.delegate = self
 		
+		//checar a as permissões de localização
 		checkLocationEnabled()
 	}
 	
@@ -40,12 +43,15 @@ class MapViewController: UIViewController {
 			
 		}
 		else {
-			// alertar usuario que os serviços de localizaçao do dispositivo tao desligados
+			// alertar usuario que os serviços de localização do dispositivo tão desligados
 		}
 	}
 	
+	//seta o location manager
 	func setupLocationManager() {
 		manager.delegate = self
+		
+		//mais settings...
 	}
 	
 	//renderiza um lugar no mapa
@@ -59,6 +65,7 @@ class MapViewController: UIViewController {
 	
 	}
 	
+	//checa o tipo autorização de acordo
 	func checkAuthorizationStatus() {
 		
 		switch manager.authorizationStatus {
@@ -90,7 +97,7 @@ class MapViewController: UIViewController {
 //MARK: - Manager Delegate
 extension MapViewController: CLLocationManagerDelegate {
 
-	///Permissão e autorização
+	///Permissão mudou de estado
 	func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
 		checkAuthorizationStatus()
 	}
@@ -121,6 +128,7 @@ extension MapViewController: CLLocationManagerDelegate {
 
 extension MapViewController: MKMapViewDelegate {
 
+	///Roda quando a region do mapa mudou por algum motivo
 	func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
 		
 	}
