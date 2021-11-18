@@ -44,7 +44,7 @@ class PinViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        updateTableData()
+        //updateTableData()
     }
     
     func updateTableData(){
@@ -114,5 +114,14 @@ extension PinViewController: UITableViewDataSource {
         cell.accessoryType = .disclosureIndicator
         cell.textLabel?.text = cdAnnotations[indexPath.row].tittle
         return cell
+    }
+}
+
+extension PinViewController: UpdatableTable{
+    func annotationCreated(newAnnotation: CDAnnotation) {
+        cdAnnotations.append(newAnnotation)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }

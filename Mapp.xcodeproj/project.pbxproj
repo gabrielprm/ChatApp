@@ -10,6 +10,7 @@
 		37CBF18E2746994C007B0C54 /* CDAnnotation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CBF18C2746994C007B0C54 /* CDAnnotation+CoreDataClass.swift */; };
 		37CBF18F2746994C007B0C54 /* CDAnnotation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CBF18D2746994C007B0C54 /* CDAnnotation+CoreDataProperties.swift */; };
 		37CBF191274699A8007B0C54 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CBF190274699A8007B0C54 /* CoreDataManager.swift */; };
+		37CBF1932746CD2B007B0C54 /* UpdatableTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CBF1922746CD2B007B0C54 /* UpdatableTable.swift */; };
 		8921CD15274572B300CEF395 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8921CD14274572B300CEF395 /* AppDelegate.swift */; };
 		8921CD17274572B300CEF395 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8921CD16274572B300CEF395 /* SceneDelegate.swift */; };
 		8921CD19274572B300CEF395 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8921CD18274572B300CEF395 /* MapViewController.swift */; };
@@ -29,6 +30,7 @@
 		37CBF18C2746994C007B0C54 /* CDAnnotation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDAnnotation+CoreDataClass.swift"; sourceTree = "<group>"; };
 		37CBF18D2746994C007B0C54 /* CDAnnotation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDAnnotation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		37CBF190274699A8007B0C54 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		37CBF1922746CD2B007B0C54 /* UpdatableTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatableTable.swift; sourceTree = "<group>"; };
 		8921CD11274572B300CEF395 /* Mapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8921CD14274572B300CEF395 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8921CD16274572B300CEF395 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				8921CD1D274572B300CEF395 /* Mapp.xcdatamodeld */,
 				FB7BEAEE274575B700DC57FB /* TabBarController.swift */,
 				FB7BEAF727457E6300DC57FB /* Constraints.swift */,
+				37CBF1922746CD2B007B0C54 /* UpdatableTable.swift */,
 			);
 			path = Essentials;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				8921CD1F274572B300CEF395 /* Mapp.xcdatamodeld in Sources */,
 				FB7BEAED2745758A00DC57FB /* SettingsViewController.swift in Sources */,
 				37CBF191274699A8007B0C54 /* CoreDataManager.swift in Sources */,
+				37CBF1932746CD2B007B0C54 /* UpdatableTable.swift in Sources */,
 				FB7BEAFE2745CD1500DC57FB /* MapViewDelegate.swift in Sources */,
 				FB7BEAEF274575B700DC57FB /* TabBarController.swift in Sources */,
 				8921CD1F274572B300CEF395 /* Mapp.xcdatamodeld in Sources */,
