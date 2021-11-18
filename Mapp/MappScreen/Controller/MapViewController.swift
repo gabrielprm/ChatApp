@@ -21,6 +21,7 @@ class MapViewController: UIViewController {
 		map.delegate = self
 		
 		setupLocationButton()
+		fetchPins()
 		
 		checkLocationEnabled()
 	}
@@ -54,6 +55,22 @@ class MapViewController: UIViewController {
 		map.layer.zPosition = 0
 		
 		return map
+	}
+	
+	func fetchPins(){
+		//fazer o fetching dos pins
+		let CDPins = CoreDataManager.shared.fetchAllCDAnnotations()
+		
+		for CDPin in CDPins {
+			
+			let coordinate = CLLocationCoordinate2D(latitude: CDPin.latitude, longitude: CDPin.longitude)
+			
+			let pin = MKPointAnnotation()
+			pin.coordinate = coordinate
+			pin.title = CDPin.title
+			
+			map.addAnnotation(pin)
+		}
 	}
 	
 	//renderiza um lugar no mapa
@@ -115,15 +132,24 @@ class MapViewController: UIViewController {
 		let touchLocation = sender.location(in: map)
 		let mapCoord = map.convert(touchLocation, toCoordinateFrom: map)
 		
-		let pin = MKPointAnnotation()
-		pin.coordinate = mapCoord
-		pin.title = "hey there"
-		
+		let pin = newPin(title: "New Pin", coord: mapCoord)
 		let generator = UIImpactFeedbackGenerator(style: .light)
 		map.addAnnotation(pin)
 		generator.impactOccurred()
 		
 		sender.isEnabled = true
+	}
+	
+	func newPin(title: String, coord: CLLocationCoordinate2D) -> MKPointAnnotation {
+		
+		let pin = MKPointAnnotation()
+		pin.coordinate = coord
+		pin.title = title
+		
+		CoreDataManager.shared.createCDAnnotation(title: title, latitude: coord.latitude, longitude: coord.longitude)
+		
+		return pin
+		
 	}
 	
 	@objc func goToCurrentLocation(sender: UIButton) {

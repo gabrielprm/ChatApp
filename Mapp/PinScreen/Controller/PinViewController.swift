@@ -112,7 +112,7 @@ extension PinViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PinCell", for: indexPath)
         cell.accessoryType = .disclosureIndicator
-        cell.textLabel?.text = cdAnnotations[indexPath.row].tittle
+        cell.textLabel?.text = cdAnnotations[indexPath.row].title
         return cell
     }
 }
