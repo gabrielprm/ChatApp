@@ -21,7 +21,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
-                                    <action selector="DidPressDoneKey:" destination="Y6W-OH-hqX" eventType="primaryActionTriggered" id="xUK-M2-c2M"/>
+                                    <action selector="didPressDoneKey:" destination="Y6W-OH-hqX" eventType="primaryActionTriggered" id="6yu-lb-enS"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pin's Title:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnk-ff-fNR">

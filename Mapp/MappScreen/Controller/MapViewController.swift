@@ -128,35 +128,36 @@ class MapViewController: UIViewController {
 		}
 	}
 	
-	func newPin(title: String, coord: CLLocationCoordinate2D) -> MKPointAnnotation {
+	func newPin(coord: CLLocationCoordinate2D) -> MKPointAnnotation {
 		
 		let pin = MKPointAnnotation()
 		pin.coordinate = coord
-		pin.title = title
 		
 		return pin
 		
 	}
 	
 	@objc func didLongPress(sender: UILongPressGestureRecognizer) {
-			
+		
 		sender.isEnabled = false
 		print("long press detected")
 		
 		let touchLocation = sender.location(in: map)
 		let mapCoord = map.convert(touchLocation, toCoordinateFrom: map)
 		
-		let pin = newPin(title: "New Pin", coord: mapCoord)
+		let pin = newPin(coord: mapCoord)
 		let generator = UIImpactFeedbackGenerator(style: .light)
-		map.addAnnotation(pin)
 		generator.impactOccurred()
 		
 		let editVC = UIStoryboard(name: "EditPinScreen", bundle: nil).instantiateViewController(withIdentifier: "EditPinScreen") as! EditPinViewController
+		
 		editVC.pin = pin
 		
-		present(editVC, animated: true)
-				
-		sender.isEnabled = true
+		present(editVC, animated: true) {
+			sender.isEnabled = true
+			self.map.addAnnotation(pin)
+		}
+		
 	}
 	
 	@objc func goToCurrentLocation(sender: UIButton) {

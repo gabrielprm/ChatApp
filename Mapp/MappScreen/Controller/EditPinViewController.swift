@@ -37,6 +37,7 @@ extension MKPointAnnotation: Locatable {
 		}
 		set {
 			title = newValue
+			print(title)
 		}
 	}
 	
@@ -46,6 +47,7 @@ extension MKPointAnnotation: Locatable {
 class EditPinViewController: UIViewController {
 
 	var pin: Locatable!
+	var mapToUpdate: MKMapView!
 	
 	@IBOutlet weak var textField: UITextField!
 	
@@ -56,14 +58,15 @@ class EditPinViewController: UIViewController {
 		
     }
     
-	@IBAction func DidPressDoneKey(_ sender: UITextField) {
+	@IBAction func didPressDoneKey(_ sender: UITextField) {
 		
 		guard let text = sender.text else {return}
-		
+		print("öpa")
 		CoreDataManager.shared.createCDAnnotation(title: text,
 												  latitude: pin.coordenada.latitude,
 												  longitude: pin.coordenada.longitude)
 		pin.titulo = text
+		print(pin.titulo)
 		
 		dismiss(animated: true)
 		
