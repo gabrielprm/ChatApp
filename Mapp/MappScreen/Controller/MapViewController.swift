@@ -146,6 +146,7 @@ class MapViewController: UIViewController {
 		
 		let pin = newPin(title: "New Pin", coord: mapCoord)
 		let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.prepare()
 		map.addAnnotation(pin)
 		generator.impactOccurred()
 		

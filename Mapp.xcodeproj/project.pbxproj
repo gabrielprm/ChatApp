@@ -68,6 +68,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		37CBF1942746FEAD007B0C54 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				37CBF1922746CD2B007B0C54 /* UpdatableTable.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
 		8921CD08274572B300CEF395 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +116,7 @@
 		FB7BEAE7274574E900DC57FB /* PinScreen */ = {
 			isa = PBXGroup;
 			children = (
+				37CBF1942746FEAD007B0C54 /* Delegates */,
 				FB7BEAF22745766600DC57FB /* View */,
 				FB7BEAF32745766C00DC57FB /* Controller */,
 			);
@@ -135,7 +144,6 @@
 				8921CD1D274572B300CEF395 /* Mapp.xcdatamodeld */,
 				FB7BEAEE274575B700DC57FB /* TabBarController.swift */,
 				FB7BEAF727457E6300DC57FB /* Constraints.swift */,
-				37CBF1922746CD2B007B0C54 /* UpdatableTable.swift */,
 			);
 			path = Essentials;
 			sourceTree = "<group>";
@@ -416,7 +424,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y7F52ZVSDT;
+				DEVELOPMENT_TEAM = L6B3W3NNQ3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mapp/Essentials/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -443,7 +451,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y7F52ZVSDT;
+				DEVELOPMENT_TEAM = L6B3W3NNQ3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mapp/Essentials/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

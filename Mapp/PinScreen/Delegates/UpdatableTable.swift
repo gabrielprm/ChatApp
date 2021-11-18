@@ -8,5 +8,5 @@
 import Foundation
 
 protocol UpdatableTable{
-    func annotationCreated(newAnnotation: CDAnnotation)
+    func updateTable(newAnnotation: CDAnnotation)
 }

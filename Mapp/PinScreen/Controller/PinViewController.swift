@@ -17,13 +17,6 @@ class PinViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        
-        //MARK: For testing remove later!
-        if cdAnnotations.isEmpty {
-            CoreDataManager.shared.createCDAnnotation(title: "Point 1", latitude: -15.79579, longitude: 48.04241)
-            CoreDataManager.shared.createCDAnnotation(title: "Point 2", latitude: -15.79708, longitude: 48.05070)
-            updateTableData()
-        }
     }
     
     override func viewDidLoad() {
@@ -133,7 +126,7 @@ extension PinViewController: UITableViewDataSource {
 }
 
 extension PinViewController: UpdatableTable{
-    func annotationCreated(newAnnotation: CDAnnotation) {
+    func updateTable(newAnnotation: CDAnnotation) {
         cdAnnotations.append(newAnnotation)
         DispatchQueue.main.async {
             self.tableView.reloadData()
