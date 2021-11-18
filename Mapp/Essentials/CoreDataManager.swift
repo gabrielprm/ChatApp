@@ -88,4 +88,16 @@ class CoreDataManager{
             return nil
         }
     }
+    
+    ///Deletes a CDAnnotation that was provived
+    func deleteCDAnnotation(cdAnnotation: CDAnnotation){
+        self.context.delete(cdAnnotation)
+        saveContext()
+    }
+    
+    ///Finds the CDAnnotation then deletes it
+    func deleteCDAnnotation(latitude: Double, longitude: Double){
+        guard let cdAnnotation = fetchCDAnnotation(latitude: latitude, longitude: longitude) else { return }
+        deleteCDAnnotation(cdAnnotation: cdAnnotation)
+    }
 }

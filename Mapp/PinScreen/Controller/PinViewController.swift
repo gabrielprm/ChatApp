@@ -54,6 +54,16 @@ class PinViewController: UIViewController {
         }
     }
     
+    func deleteAnnotation(indexPath: IndexPath){
+        let cdAnnotation = cdAnnotations[indexPath.row]
+        CoreDataManager.shared.deleteCDAnnotation(cdAnnotation: cdAnnotation)
+        cdAnnotations.remove(at: indexPath.row)
+        
+        tableView.beginUpdates()
+        tableView.deleteRows(at: [indexPath], with: .left)
+        tableView.endUpdates()
+    }
+    
     @objc func addNewPin(){
         let alert = UIAlertController(title: "Novo Alfinete", message: "Adicionar as coordenadas da latitude e longitude respectivamente", preferredStyle: .alert)
         
@@ -91,7 +101,8 @@ class PinViewController: UIViewController {
 extension PinViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "") { action, view, complitionHandler in
-            complitionHandler(true)
+            //complitionHandler(true)
+            self.deleteAnnotation(indexPath: indexPath)
         }
         delete.image = UIImage(systemName: "trash")
         
