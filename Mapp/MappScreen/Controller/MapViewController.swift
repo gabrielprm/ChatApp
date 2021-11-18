@@ -108,7 +108,8 @@ class MapViewController: UIViewController {
 	}
 	
 	@objc func didLongPress(sender: UILongPressGestureRecognizer) {
-				
+			
+		sender.isEnabled = false
 		print("long press detected")
 		let touchLocation = sender.location(in: map)
 		let mapCoord = map.convert(touchLocation, toCoordinateFrom: map)
@@ -118,6 +119,8 @@ class MapViewController: UIViewController {
 		pin.title = "hey there"
 		
 		map.addAnnotation(pin)
+		
+		sender.isEnabled = true
 	}
 	
 	@objc func goToCurrentLocation(sender: UIButton) {
