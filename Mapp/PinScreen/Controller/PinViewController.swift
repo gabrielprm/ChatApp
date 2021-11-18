@@ -8,19 +8,20 @@
 import UIKit
 
 class PinViewController: UIViewController {
-    
-    var alfinetes = [
-        "Universidade Catolica de Brasilia",
-        "Casa",
-        "Shopping JK",
-        "Aeroporto"
-    ]
+
+    var cdAnnotations = CoreDataManager.shared.fetchAllCDAnnotations()
 
     private var tableView: UITableView = UITableView(frame: CGRect(), style: .insetGrouped)
     
     override func loadView() {
         super.loadView()
-     
+        
+        //MARK: For testing remove later!
+        if cdAnnotations.isEmpty {
+            CoreDataManager.shared.createCDAnnotation(title: "Point 1", latitude: -15.79579, longitude: 48.04241)
+            CoreDataManager.shared.createCDAnnotation(title: "Point 2", latitude: -15.79708, longitude: 48.05070)
+            updateTableData()
+        }
     }
     
     override func viewDidLoad() {
@@ -41,9 +42,20 @@ class PinViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPin))
     }
     
+    func updateTableData(){
+        cdAnnotations = CoreDataManager.shared.fetchAllCDAnnotations()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
     @objc func addNewPin(){
         let alert = UIAlertController(title: "Novo Alfinete", message: "Adicionar as coordenadas da latitude e longitude respectivamente", preferredStyle: .alert)
         
+        alert.addTextField { textField in
+            textField.text = "Meu Alfinete"
+            textField.placeholder = "Nome do Alfinete"
+        }
         alert.addTextField { textField in
             textField.text = "20.2345"
             textField.placeholder = "Latitude"
@@ -55,11 +67,14 @@ class PinViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "Adicionar", style: .default, handler: { [weak alert] _ in
             //Salvar as coordenadas
-            guard let latitude = alert?.textFields?[0].text, let longitude = alert?.textFields?[1].text else {
-                return
-            }
+            guard let titulo = alert?.textFields?[0].text,
+                  let latitudeText = alert?.textFields?[1].text,
+                  let longitudeText = alert?.textFields?[2].text
+            else { return }
+            guard let latitude = Double(latitudeText), let longitude = Double(longitudeText) else { return }
             
-            print("\(latitude) \(longitude)")
+            CoreDataManager.shared.createCDAnnotation(title: titulo, latitude: latitude, longitude: longitude)
+            self.updateTableData()
         }))
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
         
@@ -67,6 +82,7 @@ class PinViewController: UIViewController {
     }
 }
 
+//MARK: Table view delegate
 extension PinViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "") { action, view, complitionHandler in
@@ -82,15 +98,16 @@ extension PinViewController: UITableViewDelegate {
     }
 }
 
+//MARK: Table view data source
 extension PinViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return alfinetes.count
+        return cdAnnotations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PinCell", for: indexPath)
         cell.accessoryType = .disclosureIndicator
-        cell.textLabel?.text = alfinetes[indexPath.row]
+        cell.textLabel?.text = cdAnnotations[indexPath.row].tittle
         return cell
     }
 }
