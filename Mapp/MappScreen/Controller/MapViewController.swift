@@ -12,8 +12,12 @@ class MapViewController: UIViewController {
 	
 	private lazy var map: MKMapView = setupMap()
 	private var locationButton: UIButton?
-	
+		
 	let manager = CLLocationManager()
+	
+	override func viewDidAppear(_ animated: Bool) {
+		fetchPins()
+	}
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,8 +134,6 @@ class MapViewController: UIViewController {
 		pin.coordinate = coord
 		pin.title = title
 		
-		CoreDataManager.shared.createCDAnnotation(title: title, latitude: coord.latitude, longitude: coord.longitude)
-		
 		return pin
 		
 	}
@@ -149,6 +151,11 @@ class MapViewController: UIViewController {
 		map.addAnnotation(pin)
 		generator.impactOccurred()
 		
+		let editVC = UIStoryboard(name: "EditPinScreen", bundle: nil).instantiateViewController(withIdentifier: "EditPinScreen") as! EditPinViewController
+		editVC.pin = pin
+		
+		present(editVC, animated: true)
+				
 		sender.isEnabled = true
 	}
 	
