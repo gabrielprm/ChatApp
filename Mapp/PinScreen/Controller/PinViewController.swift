@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import CoreLocation
 
 class PinViewController: UIViewController {
 
     var cdAnnotations = CoreDataManager.shared.fetchAllCDAnnotations()
-
+    let manager = CLLocationManager()
+    
     private var tableView: UITableView = UITableView(frame: CGRect(), style: .insetGrouped)
     
     override func loadView() {
@@ -67,16 +69,18 @@ class PinViewController: UIViewController {
     @objc func addNewPin(){
         let alert = UIAlertController(title: "Novo Alfinete", message: "Adicionar as coordenadas da latitude e longitude respectivamente", preferredStyle: .alert)
         
+        let userLocation = self.manager.location?.coordinate ?? CLLocationCoordinate2D(latitude: 20.2345, longitude: -12.4453)
+        
         alert.addTextField { textField in
             textField.text = "Meu Alfinete"
             textField.placeholder = "Nome do Alfinete"
         }
         alert.addTextField { textField in
-            textField.text = "20.2345"
+            textField.text = "\(userLocation.latitude)"
             textField.placeholder = "Latitude"
         }
         alert.addTextField { textField in
-            textField.text = "-12.4453"
+            textField.text = "\(userLocation.longitude)"
             textField.placeholder = "Longitude"
         }
         
