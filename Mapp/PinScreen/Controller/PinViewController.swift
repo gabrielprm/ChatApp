@@ -42,6 +42,11 @@ class PinViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPin))
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        updateTableData()
+    }
+    
     func updateTableData(){
         cdAnnotations = CoreDataManager.shared.fetchAllCDAnnotations()
         DispatchQueue.main.async {
