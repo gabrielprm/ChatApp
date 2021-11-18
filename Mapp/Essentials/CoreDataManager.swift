@@ -69,8 +69,23 @@ class CoreDataManager{
             return result
         }
         catch{
-            print("Error trying to fetch all CDAnnotations" + error.localizedDescription)
+            print("Error trying to fetch all CDAnnotations: " + error.localizedDescription)
             return []
+        }
+    }
+    
+    func fetchCDAnnotation(latitude: Double, longitude: Double) -> CDAnnotation? {
+        let fetchRequest = CDAnnotation.fetchRequest()
+        let predicate = NSPredicate(format: "latitude == %d AND longitude == %d", latitude, longitude)
+        fetchRequest.predicate = predicate
+        
+        do{
+            let result = try self.context.fetch(fetchRequest)
+            return result.first
+        }
+        catch{
+            print("Error trying to fetch a CDAnnotation: " + error.localizedDescription)
+            return nil
         }
     }
 }
