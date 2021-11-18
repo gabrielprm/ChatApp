@@ -24,6 +24,8 @@
 		FB7BEAFC2745CCE000DC57FB /* CLManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BEAFB2745CCE000DC57FB /* CLManagerDelegate.swift */; };
 		FB7BEAFE2745CD1500DC57FB /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BEAFD2745CD1500DC57FB /* MapViewDelegate.swift */; };
 		FB7BEB002745CD3B00DC57FB /* RecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BEAFF2745CD3B00DC57FB /* RecognizerDelegate.swift */; };
+		FB9304D42746DF9500065252 /* EditPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9304D32746DF9500065252 /* EditPinViewController.swift */; };
+		FB9304D62746EC7D00065252 /* EditPinScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB9304D52746EC7D00065252 /* EditPinScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		FB7BEAFB2745CCE000DC57FB /* CLManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLManagerDelegate.swift; sourceTree = "<group>"; };
 		FB7BEAFD2745CD1500DC57FB /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
 		FB7BEAFF2745CD3B00DC57FB /* RecognizerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizerDelegate.swift; sourceTree = "<group>"; };
+		FB9304D32746DF9500065252 /* EditPinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPinViewController.swift; sourceTree = "<group>"; };
+		FB9304D52746EC7D00065252 /* EditPinScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditPinScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,7 @@
 			children = (
 				FB7BEAF42745767400DC57FB /* View */,
 				FB7BEAF52745767900DC57FB /* Controller */,
+				FB9304D22746DF6800065252 /* Delegates */,
 			);
 			path = MappScreen;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 		FB7BEAF42745767400DC57FB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FB9304D52746EC7D00065252 /* EditPinScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -189,11 +195,19 @@
 			isa = PBXGroup;
 			children = (
 				8921CD18274572B300CEF395 /* MapViewController.swift */,
+				FB9304D32746DF9500065252 /* EditPinViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FB9304D22746DF6800065252 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
 				FB7BEAFF2745CD3B00DC57FB /* RecognizerDelegate.swift */,
 				FB7BEAFD2745CD1500DC57FB /* MapViewDelegate.swift */,
 				FB7BEAFB2745CCE000DC57FB /* CLManagerDelegate.swift */,
 			);
-			path = Controller;
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +268,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB9304D62746EC7D00065252 /* EditPinScreen.storyboard in Resources */,
 				8921CD24274572B500CEF395 /* LaunchScreen.storyboard in Resources */,
 				8921CD21274572B500CEF395 /* Assets.xcassets in Resources */,
 			);
@@ -267,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8921CD19274572B300CEF395 /* MapViewController.swift in Sources */,
+				FB9304D42746DF9500065252 /* EditPinViewController.swift in Sources */,
 				8921CD15274572B300CEF395 /* AppDelegate.swift in Sources */,
 				FB7BEAFC2745CCE000DC57FB /* CLManagerDelegate.swift in Sources */,
 				8921CD17274572B300CEF395 /* SceneDelegate.swift in Sources */,
