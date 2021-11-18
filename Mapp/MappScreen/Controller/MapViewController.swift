@@ -111,6 +111,7 @@ class MapViewController: UIViewController {
 			
 		sender.isEnabled = false
 		print("long press detected")
+		
 		let touchLocation = sender.location(in: map)
 		let mapCoord = map.convert(touchLocation, toCoordinateFrom: map)
 		
@@ -118,7 +119,9 @@ class MapViewController: UIViewController {
 		pin.coordinate = mapCoord
 		pin.title = "hey there"
 		
+		let generator = UIImpactFeedbackGenerator(style: .light)
 		map.addAnnotation(pin)
+		generator.impactOccurred()
 		
 		sender.isEnabled = true
 	}
