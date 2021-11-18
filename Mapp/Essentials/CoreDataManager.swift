@@ -53,7 +53,7 @@ class CoreDataManager{
         }
     }
     
-    func createCDAnnotation(title: String, latitude: Double, longitude: Double) -> CDAnnotation{
+    @discardableResult func createCDAnnotation(title: String, latitude: Double, longitude: Double) -> CDAnnotation{
         let newCDAnnotation = CDAnnotation(context: self.context)
         newCDAnnotation.tittle = title
         newCDAnnotation.latitude = latitude
