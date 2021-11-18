@@ -15,9 +15,9 @@ extension MapViewController: CLLocationManagerDelegate {
 		checkAuthorizationStatus()
 	}
 
-	///Roda toda vez que muda a posição
+	///Roda sempre que atualiza a posição
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-				
+
 	}
 
 	///Roda quando entra numa region

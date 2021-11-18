@@ -124,6 +124,18 @@ class MapViewController: UIViewController {
 		}
 	}
 	
+	func newPin(title: String, coord: CLLocationCoordinate2D) -> MKPointAnnotation {
+		
+		let pin = MKPointAnnotation()
+		pin.coordinate = coord
+		pin.title = title
+		
+		CoreDataManager.shared.createCDAnnotation(title: title, latitude: coord.latitude, longitude: coord.longitude)
+		
+		return pin
+		
+	}
+	
 	@objc func didLongPress(sender: UILongPressGestureRecognizer) {
 			
 		sender.isEnabled = false
@@ -138,18 +150,6 @@ class MapViewController: UIViewController {
 		generator.impactOccurred()
 		
 		sender.isEnabled = true
-	}
-	
-	func newPin(title: String, coord: CLLocationCoordinate2D) -> MKPointAnnotation {
-		
-		let pin = MKPointAnnotation()
-		pin.coordinate = coord
-		pin.title = title
-		
-		CoreDataManager.shared.createCDAnnotation(title: title, latitude: coord.latitude, longitude: coord.longitude)
-		
-		return pin
-		
 	}
 	
 	@objc func goToCurrentLocation(sender: UIButton) {
