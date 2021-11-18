@@ -20,6 +20,9 @@
 		FB7BEAED2745758A00DC57FB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BEAEC2745758A00DC57FB /* SettingsViewController.swift */; };
 		FB7BEAEF274575B700DC57FB /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BEAEE274575B700DC57FB /* TabBarController.swift */; };
 		FB7BEAF827457E6300DC57FB /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BEAF727457E6300DC57FB /* Constraints.swift */; };
+		FB7BEAFC2745CCE000DC57FB /* CLManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BEAFB2745CCE000DC57FB /* CLManagerDelegate.swift */; };
+		FB7BEAFE2745CD1500DC57FB /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BEAFD2745CD1500DC57FB /* MapViewDelegate.swift */; };
+		FB7BEB002745CD3B00DC57FB /* RecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BEAFF2745CD3B00DC57FB /* RecognizerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		FB7BEAEC2745758A00DC57FB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FB7BEAEE274575B700DC57FB /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		FB7BEAF727457E6300DC57FB /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		FB7BEAFB2745CCE000DC57FB /* CLManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLManagerDelegate.swift; sourceTree = "<group>"; };
+		FB7BEAFD2745CD1500DC57FB /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
+		FB7BEAFF2745CD3B00DC57FB /* RecognizerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +178,9 @@
 			isa = PBXGroup;
 			children = (
 				8921CD18274572B300CEF395 /* MapViewController.swift */,
+				FB7BEAFF2745CD3B00DC57FB /* RecognizerDelegate.swift */,
+				FB7BEAFD2745CD1500DC57FB /* MapViewDelegate.swift */,
+				FB7BEAFB2745CCE000DC57FB /* CLManagerDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -248,6 +257,7 @@
 			files = (
 				8921CD19274572B300CEF395 /* MapViewController.swift in Sources */,
 				8921CD15274572B300CEF395 /* AppDelegate.swift in Sources */,
+				FB7BEAFC2745CCE000DC57FB /* CLManagerDelegate.swift in Sources */,
 				8921CD17274572B300CEF395 /* SceneDelegate.swift in Sources */,
 				FB7BEAEB2745756A00DC57FB /* PinViewController.swift in Sources */,
 				FB7BEAF827457E6300DC57FB /* Constraints.swift in Sources */,
@@ -257,6 +267,11 @@
 				8921CD1F274572B300CEF395 /* Mapp.xcdatamodeld in Sources */,
 				FB7BEAED2745758A00DC57FB /* SettingsViewController.swift in Sources */,
 				37CBF191274699A8007B0C54 /* CoreDataManager.swift in Sources */,
+				FB7BEAFE2745CD1500DC57FB /* MapViewDelegate.swift in Sources */,
+				FB7BEAEF274575B700DC57FB /* TabBarController.swift in Sources */,
+				8921CD1F274572B300CEF395 /* Mapp.xcdatamodeld in Sources */,
+				FB7BEAED2745758A00DC57FB /* SettingsViewController.swift in Sources */,
+				FB7BEB002745CD3B00DC57FB /* RecognizerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,7 +412,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L6B3W3NNQ3;
+				DEVELOPMENT_TEAM = Y7F52ZVSDT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mapp/Essentials/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -424,7 +439,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L6B3W3NNQ3;
+				DEVELOPMENT_TEAM = Y7F52ZVSDT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mapp/Essentials/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
