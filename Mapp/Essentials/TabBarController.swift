@@ -31,8 +31,8 @@ class TabBarController: UITabBarController {
 		//pra nav bar não aparecer na tela do mapa
 		mapNavVc.isNavigationBarHidden = true
 		
-		mapNavVc.title = "Map"
-		pinNavVc.title = "Pins"
+		mapNavVc.title = "Mapa"
+		pinNavVc.title = "Alfinetes"
 		settingsNavVc.title = "Settings"
 		
 		//adicionando as view controllers apresentadas pela tab bar controller

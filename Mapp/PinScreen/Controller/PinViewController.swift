@@ -22,7 +22,7 @@ class PinViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-		title = "Alfinetes"
+        title = "Alfinetes"
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -108,8 +108,6 @@ extension PinViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("pressed cell at: \(indexPath.row)")
-		
 		let editVC = UIStoryboard(name: "EditPinScreen", bundle: nil).instantiateViewController(withIdentifier: "EditPinScreen") as! EditPinViewController
 		
 		let pin = cdAnnotations[indexPath.row]
