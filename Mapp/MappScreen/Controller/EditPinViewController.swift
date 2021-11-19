@@ -104,8 +104,7 @@ class EditPinViewController: UIViewController {
 	@IBAction func didPressDoneKey(_ sender: UITextField) {
 		
 		guard let text = sender.text else {return}
-		print("opa")
-        
+
         if isEditMode{
             CoreDataManager.shared.saveContext()
         }
