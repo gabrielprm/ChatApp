@@ -135,6 +135,7 @@ extension PinViewController: UITableViewDataSource {
     }
 }
 
+//MARK: Updatable Table
 extension PinViewController: UpdatableTable{
     func updateTable() {
         self.updateTableData()
