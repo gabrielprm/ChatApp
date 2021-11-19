@@ -20,6 +20,7 @@ class TabBarController: UITabBarController {
         let pinViewController = PinViewController()
         
         mapViewController.updateTableDelegate = pinViewController
+		pinViewController.myMapDelegate = mapViewController.map
 		
 		//cria view controllers que serão apresentadas pela tab bar controller
 		let mapNavVc = setUpNavigationController(image: UIImage(systemName: "map"), viewController: mapViewController)

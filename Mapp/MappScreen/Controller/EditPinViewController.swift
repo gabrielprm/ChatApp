@@ -48,6 +48,7 @@ class EditPinViewController: UIViewController {
 
 	var pin: Locatable!
     var updateTableDelegate: UpdatableTable?
+	var myMapDelegate: MyMapDelegate?
     var isEditMode = false
     
 	@IBOutlet weak var textField: UITextField!
@@ -104,8 +105,7 @@ class EditPinViewController: UIViewController {
 	@IBAction func didPressDoneKey(_ sender: UITextField) {
 		
 		guard let text = sender.text else {return}
-		print("opa")
-        
+		pin.titulo = text
         if isEditMode{
             CoreDataManager.shared.saveContext()
         }
@@ -114,8 +114,7 @@ class EditPinViewController: UIViewController {
                                                       latitude: pin.coordenada.latitude,
                                                       longitude: pin.coordenada.longitude)
         }
-		
-		pin.titulo = text
+		myMapDelegate?.addPinAnnotation(pin)
         updateTableDelegate?.updateTable()
         
 		dismiss(animated: true)

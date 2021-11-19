@@ -8,9 +8,25 @@
 import UIKit
 import MapKit
 
+protocol MyMapDelegate {
+	
+	func addPinAnnotation(_ pin: Locatable)
+	
+}
+
+extension MKMapView: MyMapDelegate {
+	
+	func addPinAnnotation(_ pin: Locatable) {
+		let annotation = MKPointAnnotation()
+		annotation.title = pin.titulo
+		annotation.coordenada = pin.coordenada
+		addAnnotation(annotation)
+	}
+}
+
 class MapViewController: UIViewController {
 	
-	private lazy var map: MKMapView = setupMap()
+	lazy var map: MKMapView = setupMap()
 	private var locationButton: UIButton?
 		
     var updateTableDelegate: UpdatableTable?
@@ -66,6 +82,7 @@ class MapViewController: UIViewController {
 	func fetchPins(){
 		//fazer o fetching dos pins
 		let CDPins = CoreDataManager.shared.fetchAllCDAnnotations()
+		map.removeAnnotations(map.annotations)
 		
 		for CDPin in CDPins {
 			
@@ -129,7 +146,7 @@ class MapViewController: UIViewController {
 		}
 	}
 	
-	func newPin(coord: CLLocationCoordinate2D) -> MKPointAnnotation {
+	func newPin(coord: CLLocationCoordinate2D) -> Locatable {
 		
 		let pin = MKPointAnnotation()
 		pin.coordinate = coord
@@ -141,7 +158,6 @@ class MapViewController: UIViewController {
 	@objc func didLongPress(sender: UILongPressGestureRecognizer) {
 		
 		sender.isEnabled = false
-		print("long press detected")
 		
 		let touchLocation = sender.location(in: map)
 		let mapCoord = map.convert(touchLocation, toCoordinateFrom: map)
@@ -154,11 +170,11 @@ class MapViewController: UIViewController {
 		let editVC = UIStoryboard(name: "EditPinScreen", bundle: nil).instantiateViewController(withIdentifier: "EditPinScreen") as! EditPinViewController
 		
 		editVC.pin = pin
-        editVC.updateTableDelegate = self.updateTableDelegate
+        editVC.updateTableDelegate = updateTableDelegate
+		editVC.myMapDelegate = map
 				
 		present(editVC, animated: true) {
 			sender.isEnabled = true
-			self.map.addAnnotation(pin)
 		}
 		
 	}
@@ -173,7 +189,6 @@ class MapViewController: UIViewController {
 	//seta o location manager
 	func setupLocationManager() {
 		manager.delegate = self
-		
 		//mais settings...
 	}
 	

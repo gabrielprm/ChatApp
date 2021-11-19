@@ -12,7 +12,8 @@ class PinViewController: UIViewController {
 
     var cdAnnotations = CoreDataManager.shared.fetchAllCDAnnotations()
     let manager = CLLocationManager()
-    
+	var myMapDelegate: MyMapDelegate?
+	
     private var tableView: UITableView = UITableView(frame: CGRect(), style: .insetGrouped)
     
     override func loadView() {
@@ -115,6 +116,7 @@ extension PinViewController: UITableViewDelegate {
 		editVC.pin = pin
 		editVC.updateTableDelegate = self
         editVC.isEditMode = true
+		editVC.myMapDelegate = myMapDelegate
 		
 		present(editVC, animated: true)
     }
