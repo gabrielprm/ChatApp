@@ -114,10 +114,9 @@ extension PinViewController: UITableViewDelegate {
 		let pin = cdAnnotations[indexPath.row]
 		editVC.pin = pin
 		editVC.updateTableDelegate = self
+        editVC.isEditMode = true
 		
-		present(editVC, animated: true) {
-			CoreDataManager.shared.deleteCDAnnotation(cdAnnotation: pin)
-		}
+		present(editVC, animated: true)
     }
 }
 

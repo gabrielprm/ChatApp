@@ -48,6 +48,7 @@ class EditPinViewController: UIViewController {
 
 	var pin: Locatable!
     var updateTableDelegate: UpdatableTable?
+    var isEditMode = false
     
 	@IBOutlet weak var textField: UITextField!
     @IBOutlet weak var distanceTextLabel: UILabel!
@@ -104,9 +105,16 @@ class EditPinViewController: UIViewController {
 		
 		guard let text = sender.text else {return}
 		print("opa")
-		CoreDataManager.shared.createCDAnnotation(title: text,
-												  latitude: pin.coordenada.latitude,
-												  longitude: pin.coordenada.longitude)
+        
+        if isEditMode{
+            CoreDataManager.shared.saveContext()
+        }
+        else{
+            CoreDataManager.shared.createCDAnnotation(title: text,
+                                                      latitude: pin.coordenada.latitude,
+                                                      longitude: pin.coordenada.longitude)
+        }
+		
 		pin.titulo = text
         updateTableDelegate?.updateTable()
         
