@@ -13,6 +13,8 @@ class MapViewController: UIViewController {
 	private lazy var map: MKMapView = setupMap()
 	private var locationButton: UIButton?
 		
+    var updateTableDelegate: UpdatableTable?
+    
 	let manager = CLLocationManager()
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -92,7 +94,6 @@ class MapViewController: UIViewController {
 		if CLLocationManager.locationServicesEnabled() {
 			setupLocationManager()
 			checkAuthorizationStatus()
-			
 		}
 		else {
 			// alertar usuario que os serviços de localização do dispositivo tão desligados
@@ -154,6 +155,7 @@ class MapViewController: UIViewController {
 		let editVC = UIStoryboard(name: "EditPinScreen", bundle: nil).instantiateViewController(withIdentifier: "EditPinScreen") as! EditPinViewController
 		
 		editVC.pin = pin
+        editVC.updateTableDelegate = self.updateTableDelegate
 		
 		present(editVC, animated: true) {
 			sender.isEnabled = true

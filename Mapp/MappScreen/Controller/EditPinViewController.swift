@@ -48,7 +48,8 @@ class EditPinViewController: UIViewController {
 
 	var pin: Locatable!
 	var mapToUpdate: MKMapView!
-	
+    var updateTableDelegate: UpdatableTable?
+    
 	@IBOutlet weak var textField: UITextField!
 	
     override func viewDidLoad() {
@@ -67,9 +68,9 @@ class EditPinViewController: UIViewController {
 												  longitude: pin.coordenada.longitude)
 		pin.titulo = text
 		print(pin.titulo)
-		
+        updateTableDelegate?.updateTable()
+        
 		dismiss(animated: true)
-		
 	}
 }
 

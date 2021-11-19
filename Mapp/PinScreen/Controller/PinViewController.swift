@@ -126,10 +126,8 @@ extension PinViewController: UITableViewDataSource {
 }
 
 extension PinViewController: UpdatableTable{
-    func updateTable(newAnnotation: CDAnnotation) {
-        cdAnnotations.append(newAnnotation)
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
+    func updateTable() {
+        print("Test GGG")
+        self.updateTableData()
     }
 }

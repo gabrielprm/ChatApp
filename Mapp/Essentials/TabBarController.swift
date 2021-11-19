@@ -16,13 +16,17 @@ class TabBarController: UITabBarController {
     }
     
 	func setupChildren() {
+        let mapViewController = MapViewController()
+        let pinViewController = PinViewController()
+        
+        mapViewController.updateTableDelegate = pinViewController
 		
 		//cria view controllers que serão apresentadas pela tab bar controller
-		let mapNavVc = setUpNavigationController(image: UIImage(systemName: "map"), viewController: MapViewController())
-		let pinNavVc = setUpNavigationController(image: UIImage(systemName: "pin.circle"), viewController: PinViewController())
+		let mapNavVc = setUpNavigationController(image: UIImage(systemName: "map"), viewController: mapViewController)
+		let pinNavVc = setUpNavigationController(image: UIImage(systemName: "pin.circle"), viewController: pinViewController)
         pinNavVc.navigationBar.prefersLargeTitles = true
 		let settingsNavVc = setUpNavigationController(image: UIImage(systemName: "gearshape"), viewController: SettingsViewController())
-		
+        
 		//pra nav bar não aparecer na tela do mapa
 		mapNavVc.isNavigationBarHidden = true
 		
