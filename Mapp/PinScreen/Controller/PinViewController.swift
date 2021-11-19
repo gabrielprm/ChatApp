@@ -127,7 +127,6 @@ extension PinViewController: UITableViewDataSource {
 
 extension PinViewController: UpdatableTable{
     func updateTable() {
-        print("Test GGG")
         self.updateTableData()
     }
 }
