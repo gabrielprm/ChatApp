@@ -52,6 +52,9 @@ class EditPinViewController: UIViewController {
     
 	@IBOutlet weak var textField: UITextField!
     @IBOutlet weak var distanceTextLabel: UILabel!
+    @IBOutlet weak var addressView: UIView!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var pinCoordinatesLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,10 +69,36 @@ class EditPinViewController: UIViewController {
             distanceTextLabel.isEnabled = false
             return
         }
-        let pinLocation = CLLocation(latitude: pin.coordenada.latitude, longitude: pin.coordenada.longitude)
+        let latitude = pin.coordenada.latitude
+        let longitude = pin.coordenada.longitude
+        
+        let pinLocation = CLLocation(latitude: latitude, longitude: longitude)
         let distance = userLocation.distance(from: pinLocation)
         let distanceString = distance < 1000 ? "\(Int(distance.rounded())) m" : String(format: "%.1f", distance/1000) + " km"
         distanceTextLabel.text = distanceString + " de distancia"
+        
+        addressView.layer.cornerRadius = 10
+        
+        CLGeocoder().reverseGeocodeLocation(pinLocation) { placemarks, error in
+            if let error = error {
+                print("Reverse Geocode Location Error: \(error)")
+            }
+            
+            guard let placemark = placemarks?.first else { return }
+            
+            let name = placemark.name ?? ""
+            let locality = placemark.locality ?? ""
+            let subLocality = placemark.subLocality ?? ""
+            let administrativeArea = placemark.administrativeArea ?? ""
+            let postalCode = placemark.postalCode ?? ""
+            let country = placemark.country ?? ""
+            self.addressLabel.text = "\(name)\n\(subLocality)\n\(locality) - \(administrativeArea)\n\(postalCode)\n\(country)"
+        }
+        
+        let latitudeText = String(format: "%.6f", latitude.magnitude) + "° " + (latitude > 0 ? "N" : "S")
+        let longitudeText = String(format: "%.6f", longitude.magnitude) + "° " + (longitude > 0 ? "L" : "O")
+        
+        pinCoordinatesLabel.text = latitudeText + ", " + longitudeText
     }
     
 	@IBAction func didPressDoneKey(_ sender: UITextField) {
