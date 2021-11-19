@@ -108,6 +108,16 @@ extension PinViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("pressed cell at: \(indexPath.row)")
+		
+		let editVC = UIStoryboard(name: "EditPinScreen", bundle: nil).instantiateViewController(withIdentifier: "EditPinScreen") as! EditPinViewController
+		
+		let pin = cdAnnotations[indexPath.row]
+		editVC.pin = pin
+		editVC.updateTableDelegate = self
+		
+		present(editVC, animated: true) {
+			CoreDataManager.shared.deleteCDAnnotation(cdAnnotation: pin)
+		}
     }
 }
 

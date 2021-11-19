@@ -149,14 +149,13 @@ class MapViewController: UIViewController {
 		let pin = newPin(coord: mapCoord)
 		let generator = UIImpactFeedbackGenerator(style: .light)
         generator.prepare()
-		map.addAnnotation(pin)
 		generator.impactOccurred()
 		
 		let editVC = UIStoryboard(name: "EditPinScreen", bundle: nil).instantiateViewController(withIdentifier: "EditPinScreen") as! EditPinViewController
 		
 		editVC.pin = pin
         editVC.updateTableDelegate = self.updateTableDelegate
-		
+				
 		present(editVC, animated: true) {
 			sender.isEnabled = true
 			self.map.addAnnotation(pin)
